@@ -601,7 +601,56 @@
     .gradient-hero {
         padding-top: 4.5rem !important;  /* perfect for your new smaller nav */
     }
+}/* MOBILE HERO REFINEMENT */
+@media (max-width: 640px) {
+
+    /* Smaller, cleaner hero heading */
+    .gradient-hero h1 {
+        font-size: 1.75rem !important;   /* ~28px */
+        line-height: 1.25 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Make paragraphs easier to read */
+    .gradient-hero p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0.9rem !important;
+    }
+
+    /* Slim hero buttons */
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.85rem 1.4rem !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* Tighter spacing between the two hero buttons */
+    .flex.flex-col.sm\:flex-row.gap-4 {
+        gap: 0.6rem !important;
+        margin-top: 0.8rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Reduce overall hero top spacing */
+    .gradient-hero {
+        padding-top: 5rem !important;
+        padding-bottom: 2.5rem !important;
+        background-size: 180% !important; /* smoother gradient on mobile */
+    }
+    
+    /* Limit max-width of text for nicer reading */
+    .gradient-hero .text-white,
+    .gradient-hero p {
+        max-width: 22rem; /* keeps lines short and premium */
+    }
+    
+    /* Center hero text block more nicely */
+    .gradient-hero > div > div:first-child {
+        margin-top: 1rem !important;
+    }
 }
+
 
 }
 
