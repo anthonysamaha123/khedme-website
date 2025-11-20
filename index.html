@@ -594,7 +594,15 @@
     .sticky-nav {
         backdrop-filter: blur(6px) !important;
         -webkit-backdrop-filter: blur(6px) !important;
+    }/* MOBILE HERO OFFSET FIX */
+@media (max-width: 640px) {
+
+    /* Reduce hero top padding so it starts BELOW the navbar */
+    .gradient-hero {
+        padding-top: 4.5rem !important;  /* perfect for your new smaller nav */
     }
+}
+
 }
 
 }
