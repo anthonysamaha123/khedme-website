@@ -601,79 +601,62 @@
     .gradient-hero {
         padding-top: 4.5rem !important;  /* perfect for your new smaller nav */
     }
-}/* MOBILE HERO REFINEMENT */
+}/* FINAL MOBILE HERO TUNING */
 @media (max-width: 640px) {
 
-    /* Smaller, cleaner hero heading */
-    .gradient-hero h1 {
-        font-size: 1.75rem !important;   /* ~28px */
-        line-height: 1.25 !important;
-        margin-bottom: 1rem !important;
-    }
-
-    /* Make paragraphs easier to read */
-    .gradient-hero p {
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
-        margin-bottom: 0.9rem !important;
-    }
-
-    /* Slim hero buttons */
-    .btn-primary,
-    .btn-secondary {
-        padding: 0.85rem 1.4rem !important;
-        font-size: 0.95rem !important;
-    }
-
-    /* Tighter spacing between the two hero buttons */
-    .flex.flex-col.sm\:flex-row.gap-4 {
-        gap: 0.6rem !important;
-        margin-top: 0.8rem !important;
-        margin-bottom: 1rem !important;
-    }
-
-    /* Reduce overall hero top spacing */
+    /* Overall hero spacing */
     .gradient-hero {
-        padding-top: 5rem !important;
+        padding-top: 4.75rem !important;   /* just below nav */
         padding-bottom: 2.5rem !important;
-        background-size: 180% !important; /* smoother gradient on mobile */
-    }
-    
-    /* Limit max-width of text for nicer reading */
-    .gradient-hero .text-white,
-    .gradient-hero p {
-        max-width: 22rem; /* keeps lines short and premium */
-    }
-    
-    /* Center hero text block more nicely */
-    .gradient-hero > div > div:first-child {
-        margin-top: 1rem !important;
-    }
-}/* MOBILE HERO CENTERING */
-@media (max-width: 640px) {
-
-    /* Center all hero text */
-    .gradient-hero div:first-child {
-        text-align: center !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
     }
 
-    /* Center the two hero buttons */
-    .gradient-hero .flex {
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-    /* Center the final small text lines */
-    .gradient-hero p {
-        text-align: center !important;
+    /* Center container */
+    .gradient-hero .max-w-7xl {
+        max-width: 24rem !important;       /* keeps lines nice and narrow */
         margin-left: auto !important;
         margin-right: auto !important;
     }
 
-    /* Center the hero heading cleanly */
+    /* Heading – smaller & tighter */
     .gradient-hero h1 {
+        font-size: 1.55rem !important;     /* ~24–25px */
+        line-height: 1.25 !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.75rem !important;
         text-align: center !important;
     }
+
+    /* Paragraphs – readable and centered */
+    .gradient-hero p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        max-width: 22rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 0.85rem !important;
+        text-align: center !important;
+    }
+
+    /* Buttons – slimmer, centered, same width */
+    .gradient-hero .flex.flex-col.sm\:flex-row {
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.6rem !important;
+        margin-top: 0.7rem !important;
+        margin-bottom: 0.9rem !important;
+    }
+
+    .gradient-hero .btn-primary,
+    .gradient-hero .btn-secondary {
+        padding: 0.8rem 1.3rem !important;
+        font-size: 0.9rem !important;
+        width: 100% !important;
+        max-width: 260px !important;
+    }
+}
+
 }
 
 
