@@ -552,7 +552,51 @@
     /* Mobile menu fix */
     #mobile-menu a {
         padding: 0.75rem 0.5rem !important;
+    }/* MOBILE NAVIGATION FIX */
+@media (max-width: 640px) {
+
+    /* Shrink navbar overall height */
+    .sticky-nav {
+        padding-top: 0.35rem !important;
+        padding-bottom: 0.35rem !important;
     }
+
+    /* Shrink container spacing */
+    nav .flex {
+        padding-top: 0.25rem !important;
+        padding-bottom: 0.25rem !important;
+    }
+
+    /* Smaller logo icon */
+    nav img.w-10 {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    /* Smaller wordmark */
+    nav img.h-6 {
+        height: 16px !important;
+    }
+
+    /* Shrink hamburger icon */
+    #mobile-menu-btn svg {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    /* Tighten left/right spacing */
+    nav .px-4 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    /* Reduce blur intensity */
+    .sticky-nav {
+        backdrop-filter: blur(6px) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+    }
+}
+
 }
 
     </style>
