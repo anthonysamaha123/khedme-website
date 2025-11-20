@@ -649,7 +649,33 @@
     .gradient-hero > div > div:first-child {
         margin-top: 1rem !important;
     }
+}/* MOBILE HERO CENTERING */
+@media (max-width: 640px) {
+
+    /* Center all hero text */
+    .gradient-hero div:first-child {
+        text-align: center !important;
+    }
+
+    /* Center the two hero buttons */
+    .gradient-hero .flex {
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* Center the final small text lines */
+    .gradient-hero p {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Center the hero heading cleanly */
+    .gradient-hero h1 {
+        text-align: center !important;
+    }
 }
+
 
 
 }
