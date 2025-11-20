@@ -485,6 +485,76 @@
         .grid {
             display: grid;
         }
+        /* MOBILE FIXES */
+@media (max-width: 640px) {
+
+    /* Reduce hero text */
+    .gradient-hero h1 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .gradient-hero p {
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+    }
+
+    /* Reduce hero image */
+    .gradient-hero img {
+        max-width: 220px !important;
+    }
+
+    /* Reduce section spacing */
+    section {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    /* Cards more compact */
+    .card {
+        padding: 1.5rem !important;
+        border-radius: 1.25rem !important;
+    }
+
+    /* Titles smaller */
+    h2, h3 {
+        font-size: 1.6rem !important;
+    }
+    
+    h4 {
+        font-size: 1.2rem !important;
+    }
+
+    /* Text size */
+    p, li, span {
+        font-size: 0.95rem !important;
+    }
+
+    /* Reduce number circles */
+    .card .w-14 {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        font-size: 1rem !important;
+    }
+
+    /* Buttons smaller */
+    .btn-primary, .btn-secondary {
+        padding: 0.9rem 1.6rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* Navigation height */
+    nav {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    /* Mobile menu fix */
+    #mobile-menu a {
+        padding: 0.75rem 0.5rem !important;
+    }
+}
+
     </style>
 </head>
 <body>
