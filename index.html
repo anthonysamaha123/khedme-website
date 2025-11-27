@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHEDME — Lebanon’s Services App</title>
+    <meta name="description" content="Lebanon’s services app. One tap to trusted help, real impact.">
+    
+    <!-- Favicon / App Icon -->
+    <link rel="icon" type="image/png" href="assets/icon-1024.png">
+    <link rel="apple-touch-icon" href="assets/icon-1024.png">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        :root {
+            --primary: #409FFF;
+            --charcoal: #1a1a1a;
+            --secondary: #6b7280;
+            --background: #fafafa;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--charcoal);
+            background: var(--background);
+            overflow-x: hidden;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+            letter-spacing: -0.011em;
+        }
+        
+        .gradient-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 25%, #409FFF 60%, #f0f9ff 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .gradient-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(64, 159, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .text-primary { color: var(--primary) !important; }
+        .text-charcoal { color: var(--charcoal) !important; }
+        .text-secondary { color: var(--secondary) !important; }
+        .bg-primary { background-color: var(--primary) !important; }
+        .bg-charcoal { background-color: var(--charcoal) !important; }
+        
+        /* Premium Navigation */
+        .sticky-nav {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+        
+        .sticky-nav.scrolled {
+            padding: 0.75rem 0;
+            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        /* Smooth Animations */
+        .fade-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .float-animation {
+            animation: float 8s ease-in-out infinite;
+            will-change: transform;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(1deg); }
+            66% { transform: translateY(-5px) rotate(-1deg); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Premium Buttons - Apple-like */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.125rem 2.25rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 9999px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 14px 0 rgba(64, 159, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: -0.01em;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .btn-primary span {
+            font-weight: 700;
+            position: relative;
+            z-index: 10;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px 0 rgba(64, 159, 255, 0.35);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.125rem 2.25rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            letter-spacing: -0.01em;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px) scale(1.02);
+            background: rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        /* Premium Cards - More Spacious */
+        .card {
+            background: var(--white);
+            border-radius: 1.75rem;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        }
+        
+        .card-feature {
+            background: linear-gradient(135deg, rgba(64, 159, 255, 0.03) 0%, rgba(64, 159, 255, 0.01) 100%);
+            border: 1px solid rgba(64, 159, 255, 0.08);
+        }
+        
+        /* Spacing utilities */
+        .space-y-6 > * + * {
+            margin-top: 2rem;
+        }
+        
+        .space-y-8 > * + * {
+            margin-top: 2.5rem;
+        }
+        
+        .space-y-12 > * + * {
+            margin-top: 4rem;
+        }
+        
+        /* Typography Enhancements */
+        h1 {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+        }
+        
+        h2 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+        
+        h3, h4 {
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            line-height: 1.3;
+        }
+        
+        p {
+            line-height: 1.8;
+            color: var(--charcoal);
+            letter-spacing: -0.01em;
+        }
+        
+        /* Text readability improvements */
+        .text-lg, .text-xl {
+            line-height: 1.75;
+            letter-spacing: -0.011em;
+        }
+        
+        .text-sm {
+            line-height: 1.6;
+            letter-spacing: -0.005em;
+        }
+        
+        /* Section Base Styles */
+        section {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: block;
+        }
+
+        /* Mobile vs Desktop visibility helpers */
+        .mobile-only {
+            display: block;
+        }
+
+        .desktop-only {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-only {
+                display: none;
+            }
+
+            .desktop-only {
+                display: block;
+            }
+        }
+        
+        /* Ensure proper container centering */
+        .max-w-6xl,
+        .max-w-7xl,
+        .max-w-5xl,
+        .max-w-4xl,
+        .max-w-3xl,
+        .max-w-2xl {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        
+        /* Ensure sections have proper spacing */
+        section {
+            padding: 5rem 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            section {
+                padding: 6rem 2rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            section {
+                padding: 6rem 2rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            section {
+                padding: 8rem 2rem;
+            }
+        }
+        
+        /* Override for hero section */
+        .gradient-hero {
+            padding: 0 !important;
+        }
+        
+        /* Image Enhancements */
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+        }
+        
+        /* Form Enhancements */
+        input, textarea {
+            color: var(--charcoal);
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0.75rem;
+            padding: 0.875rem 1.25rem;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(64, 159, 255, 0.1);
+        }
+        
+        input::placeholder {
+            color: var(--secondary);
+            opacity: 0.6;
+        }
+        
+        /* Trust Signals */
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(64, 159, 255, 0.1);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Smooth Scrolling Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        /* Premium Shadows */
+        .shadow-premium {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Hover Effects */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-4px);
+        }
+        
+        /* Ensure visibility */
+        body * {
+            visibility: visible !important;
+        }
+        
+        .gradient-hero * {
+            color: white !important;
+        }
+        
+        .gradient-hero .text-primary {
+            color: var(--primary) !important;
+        }
+        
+        /* Loading Animation */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        .loading-shimmer {
+            animation: shimmer 2s infinite linear;
+            background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+            background-size: 1000px 100%;
+        }
+        
+        /* Enhanced Visual Hierarchy */
+        .text-charcoal\/80 {
+            color: rgba(26, 26, 26, 0.75);
+        }
+        
+        .text-charcoal\/70 {
+            color: rgba(26, 26, 26, 0.65);
+        }
+        
+        /* Better focus states */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        
+        /* Improved card text spacing */
+        .card p, .card h4 {
+            margin-bottom: 0.75rem;
+        }
+        
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Subtle background patterns */
+        .bg-gray-50 {
+            background: #f9fafb;
+        }
+        
+        /* Better contrast for readability */
+        blockquote {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Hero section improvements */
+        .gradient-hero h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .gradient-hero p {
+            margin-bottom: 1.25rem;
+        }
+        
+        /* Section dividers - subtle */
+        section + section {
+            border-top: 1px solid transparent;
+        }
+        
+        /* Improved grid gaps - let Tailwind handle it */
+        .grid {
+            display: grid;
+        }
+
+        /* Mobile button sizing and content width */
+        @media (max-width: 640px) {
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.65rem 1.2rem;
+                font-size: 0.85rem;
+                box-shadow: 0 2px 8px rgba(64, 159, 255, 0.22);
+            }
+
+            .mobile-container {
+                max-width: 360px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- NAVIGATION -->
+    <nav class="sticky-nav sticky top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto">
+            <!-- Main nav bar -->
+            <div class="flex items-center justify-between px-4 md:px-6 lg:px-8 py-3 md:py-4">
+                <!-- Logo section -->
+                <div class="flex items-center space-x-2.5 md:space-x-3 flex-shrink-0">
+                    <img src="assets/icon-1024.png" alt="KHEDME" class="w-10 h-10 md:w-12 md:h-12 rounded-lg" />
+                    <img src="assets/Word logo.png" alt="KHEDME Logo" class="h-6 md:h-7" />
+                </div>
+                
+                <!-- Desktop navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="#for-clients" class="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary transition-colors">For Clients</a>
+                    <a href="#for-workers" class="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary transition-colors">For Workers</a>
+                    <a href="#how-it-works" class="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary transition-colors">How It Works</a>
+                    <a href="#categories" class="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary transition-colors">Categories</a>
+                    <a href="#why-khedme" class="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary transition-colors">Why KHEDME</a>
+                    <a href="#stories" class="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary transition-colors">Stories</a>
+                    <div class="ml-4 pl-4 border-l border-gray-200">
+                        <a href="#download" class="btn-primary bg-primary text-white px-5 py-2.5 text-sm font-semibold">
+                            <span class="relative z-10">Get KHEDME</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal hover:text-primary transition-colors">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100">
+                <div class="px-4 py-3 space-y-1">
+                    <a href="#for-clients" class="block px-3 py-2.5 text-sm font-medium text-charcoal hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">For Clients</a>
+                    <a href="#for-workers" class="block px-3 py-2.5 text-sm font-medium text-charcoal hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">For Workers</a>
+                    <a href="#how-it-works" class="block px-3 py-2.5 text-sm font-medium text-charcoal hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">How It Works</a>
+                    <a href="#categories" class="block px-3 py-2.5 text-sm font-medium text-charcoal hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Categories</a>
+                    <a href="#why-khedme" class="block px-3 py-2.5 text-sm font-medium text-charcoal hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Why KHEDME</a>
+                    <a href="#stories" class="block px-3 py-2.5 text-sm font-medium text-charcoal hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Stories</a>
+                    <div class="pt-3 mt-3 border-t border-gray-100">
+                        <a href="#download" class="block btn-primary bg-primary text-white px-4 py-2.5 text-sm font-semibold text-center">
+                            <span class="relative z-10">Get KHEDME</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+    
+    <!-- HERO SECTION -->
+    <section class="gradient-hero min-h-screen flex items-center pt-36 md:pt-40 pb-12 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full mobile-container">
+            <div class="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+
+                <!-- MOBILE HERO -->
+                <div class="order-1 md:order-2 md:hidden flex justify-center mt-6">
+                    <div class="relative max-w-[220px]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent blur-3xl rounded-full scale-150"></div>
+                        <img src="assets/Categories.png"
+                             alt="KHEDME app preview"
+                             class="relative w-full h-auto rounded-[32px] shadow-premium" />
+                    </div>
+                </div>
+
+                <div class="text-white order-2 md:order-1 mt-4 md:mt-0">
+                    <!-- Mobile copy -->
+                    <div class="md:hidden text-center">
+                        <h1 class="font-bold mb-3 leading-tight">
+                            <span class="block text-3xl">Get Things Done</span>
+                            <span class="block text-xl mt-1">In Lebanon</span>
+                            <span class="block text-xl mt-0.5">Without The Chaos</span>
+                        </h1>
+                        <p class="text-sm md:text-base text-white/90 mb-4 leading-relaxed">
+                            KHEDME lets you book trusted cleaners, movers, electricians, plumbers, babysitters and more, in a few taps – and pay in cash when the job is done.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-3 mb-4 items-center">
+                            <a href="#download" class="btn-primary bg-primary text-white w-full max-w-[320px] justify-center">
+                                <span>Get KHEDME</span>
+                            </a>
+                            <a href="#how-it-works" class="btn-secondary bg-white/15 border border-white/30 text-white text-sm w-full max-w-[320px] justify-center">
+                                See How It Works
+                            </a>
+                        </div>
+
+                        <p class="text-xs text-white/80">
+                            No card. No chasing people. Just real workers, real jobs, real calm.
+                        </p>
+                    </div>
+
+                    <!-- DESKTOP HERO (existing structure) -->
+                    <div class="hidden md:block fade-in">
+                        <h1 class="text-6xl font-bold mb-6 leading-tight whitespace-nowrap">
+                            KHEDME, THE SOLUTION.
+                        </h1>
+                        <p class="text-xl mb-6 text-white/90 leading-relaxed">
+                            In Lebanon, getting simple things done can steal your whole day — chasing numbers, waiting on replies, and never being sure who will actually show up.
+                        </p>
+                        <p class="text-xl mb-8 text-white/90 leading-relaxed">
+                            KHEDME brings everything into one clear app so you can book cleaners, movers, electricians, plumbers, babysitters, and more in a few taps, pay in cash, and get your time and peace of mind back.
+                        </p>
+
+                        <div class="flex flex-row gap-4 mb-6">
+                            <a href="#download" class="btn-primary bg-primary text-white relative z-10">
+                                <span class="relative z-10">Get KHEDME</span>
+                            </a>
+                            <a href="#how-it-works" class="btn-secondary bg-white/20 border-2 border-white/30 text-white">
+                                How It Works
+                            </a>
+                        </div>
+
+                        <p class="text-sm mb-4 text-white/80">
+                            Cash on delivery. You pay the worker directly. KHEDME never holds your money.
+                        </p>
+
+                        <p class="text-sm italic text-white/70 leading-relaxed">
+                            Every booking is real income for a worker, real calm for a family, and one small step toward the Lebanon we all want to live in.
+                        </p>
+                    </div>
+
+                    <!-- Scroll Indicator (all viewports) -->
+                    <div class="scroll-indicator mt-12">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white/60">
+                            <path d="M12 5v14M19 12l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- DESKTOP IMAGE -->
+                <div class="hidden md:flex relative float-animation justify-center" style="z-index: 2;">
+                    <div class="relative max-w-[320px]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent blur-3xl rounded-full transform scale-150"></div>
+                        <img src="assets/Categories.png" alt="KHEDME App" class="relative w-full h-auto rounded-[40px] shadow-premium" style="filter: drop-shadow(0 25px 50px rgba(0,0,0,0.3));" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PROBLEM VS SOLUTION -->
+    <section class="bg-white">
+        <div class="max-w-6xl mx-auto mobile-container">
+            <div class="grid md:grid-cols-2 gap-16 mb-20">
+                <!-- Block A - Life without KHEDME -->
+                <div class="fade-in">
+                    <h3 class="text-3xl md:text-4xl font-bold text-charcoal mb-8">Life Without KHEDME</h3>
+
+                    <!-- Mobile summary -->
+                    <ul class="md:hidden text-base text-charcoal/80 space-y-2 mb-8 leading-relaxed">
+                        <li>Endless WhatsApp groups, voice notes and “who has a number?” messages.</li>
+                        <li>You never know who will show up, when they’ll arrive, or what it will cost.</li>
+                        <li>Your day gets eaten by follow-ups, favours and stress.</li>
+                    </ul>
+
+                    <!-- Desktop detailed copy -->
+                    <div class="hidden md:block">
+                        <p class="text-lg text-charcoal/80 mb-10 leading-relaxed">
+                            To fix anything, you call a relative, who calls a friend, who "knows a guy". You save numbers you do not remember, send desperate messages in family groups, and wait for someone to answer.
+                        </p>
+                        <p class="text-lg text-charcoal/80 mb-10 leading-relaxed">
+                            You never know who is coming, when they will arrive, or how much they will charge. It is exhausting, unreliable, and always louder than it should be.
+                        </p>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div class="card bg-red-50/50 border-red-200/50">
+                            <p class="font-semibold text-charcoal leading-relaxed">Random numbers, random prices, no clear agreement.</p>
+                        </div>
+                        <div class="card bg-red-50/50 border-red-200/50">
+                            <p class="font-semibold text-charcoal leading-relaxed">Last-minute cancellations, no-shows, and "I'm on my way" for hours.</p>
+                        </div>
+                        <div class="card bg-red-50/50 border-red-200/50">
+                            <p class="font-semibold text-charcoal leading-relaxed">Stress for you, instability for workers, and no real structure for anyone.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Block B - Life with KHEDME -->
+                <div class="fade-in">
+                    <h3 class="text-3xl md:text-4xl font-bold text-charcoal mb-8">Life With KHEDME</h3>
+
+                    <!-- Mobile summary -->
+                    <ul class="md:hidden text-base text-charcoal/80 space-y-2 mb-8 leading-relaxed">
+                        <li>One app to see services, workers and available times in front of you.</li>
+                        <li>Book in a few taps, with clear timing and clear expectations.</li>
+                        <li>Pay in cash when the job is done – simple, respectful and direct.</li>
+                    </ul>
+
+                    <!-- Desktop detailed copy -->
+                    <div class="hidden md:block">
+                        <p class="text-lg text-charcoal/80 mb-10 leading-relaxed">
+                            With KHEDME, you open one app and everything is in front of you. You choose the service, see real workers with profiles and areas, and book a time that fits your day.
+                        </p>
+                        <p class="text-lg text-charcoal/80 mb-10 leading-relaxed">
+                            You pay in cash only when the job is done. No endless chats, no guessing, no begging for favours.
+                        </p>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div class="card card-feature">
+                            <p class="font-semibold text-charcoal leading-relaxed">One app for cleaning, moving, repairs, caregiving, and more.</p>
+                        </div>
+                        <div class="card card-feature">
+                            <p class="font-semibold text-charcoal leading-relaxed">Clear profiles, clear requests, clear timing.</p>
+                        </div>
+                        <div class="card card-feature">
+                            <p class="font-semibold text-charcoal leading-relaxed">Direct cash payment to workers, with transparency and respect.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-lg text-charcoal/70 italic fade-in max-w-2xl mx-auto leading-relaxed">
+                Here is how KHEDME fits into your day — whether you are asking for help or offering your skills.
+            </p>
+        </div>
+    </section>
+    
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="bg-gray-50">
+        <div class="max-w-6xl mx-auto mobile-container">
+            <!-- 3A - For Clients -->
+            <div id="for-clients" class="mb-24 fade-in">
+                <!-- MOBILE -->
+                <div class="md:hidden px-5">
+                    <h3 class="text-2xl font-bold text-charcoal mb-3">
+                        For Clients — From "Who Do I Call?" To "It's Already Booked."
+                    </h3>
+                    <p class="text-base text-charcoal/80 mb-5">
+                        KHEDME turns the mess of finding help into a calm, three-step routine.
+                    </p>
+
+                    <div class="space-y-3">
+                        <div class="card flex items-start gap-3 py-3">
+                            <div class="bg-primary text-white rounded-full w-9 h-9 flex items-center justify-center text-xs font-bold flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-semibold text-base mb-1 leading-tight">Pick What You Need</h4>
+                                <p class="text-sm text-charcoal/80 leading-relaxed">
+                                    Cleaning, moving, repairs, caregiving and more – all in one app.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card flex items-start gap-3 py-3">
+                            <div class="bg-primary text-white rounded-full w-9 h-9 flex items-center justify-center text-xs font-bold flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-semibold text-base mb-1 leading-tight">Choose Your Time</h4>
+                                <p class="text-sm text-charcoal/80 leading-relaxed">
+                                    See available slots and tap the one that fits your day.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card flex items-start gap-3 py-3">
+                            <div class="bg-primary text-white rounded-full w-9 h-9 flex items-center justify-center text-xs font-bold flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-semibold text-base mb-1 leading-tight">Pay In Cash When It’s Done</h4>
+                                <p class="text-sm text-charcoal/80 leading-relaxed">
+                                    The worker arrives, does the job and you pay directly in cash. No surprises.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#download" class="mt-5 inline-block text-sm font-semibold text-primary">
+                        Download KHEDME and turn tomorrow's problem into today's solution →
+                    </a>
+                </div>
+
+                <!-- DESKTOP -->
+                <div class="hidden md:block">
+                    <h3 class="text-3xl font-bold text-charcoal mb-6">For Clients — From "Who Do I Call?" To "It's Already Booked."</h3>
+                    <p class="text-lg text-charcoal/80 mb-12 max-w-3xl leading-relaxed">
+                        KHEDME turns the mess of finding help into a simple, calm routine. In a few steps, your next job goes from "problem" to "handled".
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="card hover-lift">
+                            <div class="flex items-start gap-5">
+                                <div class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">1</div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-3 leading-tight">Choose What You Need</h4>
+                                    <p class="text-charcoal/80 leading-relaxed">Open KHEDME and pick what you need: cleaning, moving, electrical, plumbing, handyman, painting, babysitting, elder care, and more.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card hover-lift">
+                            <div class="flex items-start gap-5">
+                                <div class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">2</div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-3 leading-tight">Pick A Time That Suits You</h4>
+                                    <p class="text-charcoal/80 leading-relaxed">See available time slots and choose the one that fits your day. No more chasing people all day.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card hover-lift">
+                            <div class="flex items-start gap-5">
+                                <div class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">3</div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-3 leading-tight">Confirm Your Worker</h4>
+                                    <p class="text-charcoal/80 leading-relaxed">View profiles, areas, and details, then confirm your booking with one clear tap in the app.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card hover-lift">
+                            <div class="flex items-start gap-5">
+                                <div class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">4</div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-3 leading-tight">Pay In Cash When the Job Is Done</h4>
+                                    <p class="text-charcoal/80 leading-relaxed">The worker arrives, does the job, and you pay directly in cash. Simple, respectful, and clear.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-center mt-12 text-lg font-semibold text-primary fade-in">
+                        Download KHEDME and turn tomorrow's problem into today's solution.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 3B - For Workers -->
+            <div id="for-workers" class="fade-in">
+                <!-- MOBILE -->
+                <div class="md:hidden px-5">
+                    <h3 class="text-2xl font-bold text-charcoal mb-3">
+                        For Workers — Turn Your Skill Into Steady, Dignified Income.
+                    </h3>
+                    <p class="text-base text-charcoal/80 mb-5">
+                        KHEDME gives your work a visible place in the market – not just random calls.
+                    </p>
+
+                    <div class="space-y-3">
+                        <div class="card card-feature flex items-start gap-3 py-3">
+                            <div class="bg-primary text-white rounded-full w-9 h-9 flex items-center justify-center text-xs font-bold flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-semibold text-base mb-1 leading-tight">Create Your Profile</h4>
+                                <p class="text-sm text-charcoal/80 leading-relaxed">
+                                    Add your photo, skills and areas so people can actually find you.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card card-feature flex items-start gap-3 py-3">
+                            <div class="bg-primary text-white rounded-full w-9 h-9 flex items-center justify-center text-xs font-bold flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-semibold text-base mb-1 leading-tight">Accept The Right Jobs</h4>
+                                <p class="text-sm text-charcoal/80 leading-relaxed">
+                                    Requests come through the app. You accept the ones that fit your week.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card card-feature flex items-start gap-3 py-3">
+                            <div class="bg-primary text-white rounded-full w-9 h-9 flex items-center justify-center text-xs font-bold flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-semibold text-base mb-1 leading-tight">Get Paid In Cash, On Time</h4>
+                                <p class="text-sm text-charcoal/80 leading-relaxed">
+                                    Do the job, get paid directly and build a reputation that follows you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#download" class="mt-5 inline-block text-sm font-semibold text-primary">
+                        Sign up on KHEDME and stop waiting on “maybe” calls →
+                    </a>
+                </div>
+
+                <!-- DESKTOP -->
+                <div class="hidden md:block">
+                    <h3 class="text-3xl font-bold text-charcoal mb-6">For Workers — From Waiting On Calls To Owning Your Week.</h3>
+                    <p class="text-lg text-charcoal/80 mb-12 max-w-3xl leading-relaxed">
+                        If you have a skill, you deserve more than luck and random phone calls. KHEDME gives you a real place in the economy — visible, respected, and organized.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="card card-feature hover-lift">
+                            <div class="flex items-start gap-5">
+                                <div class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">1</div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-3 leading-tight">Create Your Profile</h4>
+                                    <p class="text-charcoal/80 leading-relaxed">Download KHEDME, add your photo, choose what you can do, and set the areas where you want to work.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-feature hover-lift">
+                            <div class="flex items-start gap-5">
+                                <div class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">2</div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-3 leading-tight">Receive Job Requests</h4>
+                                    <p class="text-charcoal/80 leading-relaxed">Clients send you job requests through the app. You see the details clearly and accept the ones that fit.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-feature hover-lift">
+                            <div class="flex items-start gap-5">
+                                <div class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">3</div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-3 leading-tight">Do the Job and Build Your Reputation</h4>
+                                    <p class="text-charcoal/80 leading-relaxed">Arrive on time, do quality work, and turn one satisfied client into many. Good work becomes repeat work.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-feature hover-lift">
+                            <div class="flex items-start gap-5">
+                                <div class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">4</div>
+                                <div>
+                                    <h4 class="font-bold text-xl mb-3 leading-tight">Get Paid Directly in Cash</h4>
+                                    <p class="text-charcoal/80 leading-relaxed">You are paid by the client when the job is complete. No frozen balances, no delays, no confusion.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-center mt-12 text-lg font-semibold text-primary fade-in">
+                        Sign up as a worker on KHEDME and turn your skill into stable, dignified income.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CATEGORIES -->
+    <section id="categories" class="bg-white">
+        <div class="max-w-6xl mx-auto mobile-container">
+            <p class="text-2xl md:text-3xl font-bold text-charcoal mb-4 md:mb-6 text-center fade-in">One App For The Help Lebanese Households Actually Need</p>
+            <p class="text-base md:text-lg text-charcoal/80 mb-10 md:mb-16 text-center max-w-4xl mx-auto fade-in leading-relaxed">
+                Homes, buildings, shops, and small businesses across Lebanon all share the same reality: things break, mess piles up, events come and go, and someone has to handle it. KHEDME puts all that help in one place, so your life can be organised instead of reactive.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <div class="card hover-lift fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl flex-shrink-0">🧹</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2">Cleaning</h4>
+                            <p class="text-charcoal/80 text-sm">Regular and deep cleaning for homes, buildings, and post-event days when everything needs to feel fresh again.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-lift fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl flex-shrink-0">🚚</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2">Moving</h4>
+                            <p class="text-charcoal/80 text-sm">Apartment moves, furniture transport, and extra hands when you are shifting your life from one place to another.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-lift fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl flex-shrink-0">⚡</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2">Electrical</h4>
+                            <p class="text-charcoal/80 text-sm">Fixing outages, installing lights and fixtures, and repairing small electrical issues before they become big ones.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-lift fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl flex-shrink-0">💧</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2">Plumbing</h4>
+                            <p class="text-charcoal/80 text-sm">Leaks, clogged drains, water heater issues, and urgent bathroom and kitchen repairs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-lift fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl flex-shrink-0">🔧</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2">Handyman</h4>
+                            <p class="text-charcoal/80 text-sm">Fixing doors and windows, assembling furniture, and hanging shelves — the “small” tasks that change how your home feels.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-lift fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl flex-shrink-0">🎨</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2">Painting</h4>
+                            <p class="text-charcoal/80 text-sm">Room repainting, touch-ups, and fresh coats that make old spaces feel new again.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-lift fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl flex-shrink-0">🏗️</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2">Small Construction & Repairs</h4>
+                            <p class="text-charcoal/80 text-sm">Tiles, masonry, and small renovations — the in-between work that keeps properties solid and safe.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-lift fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl flex-shrink-0">🤝</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-2">Home Help & Caregiving</h4>
+                            <p class="text-charcoal/80 text-sm">Babysitting, elderly care, night watchmen, waiters, and simple catering support when your family needs extra hands.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- WHY KHEDME -->
+    <section id="why-khedme" class="bg-gray-50">
+        <div class="max-w-6xl mx-auto mobile-container">
+            <!-- MOBILE -->
+            <div class="md:hidden px-5 py-10 text-center space-y-3">
+                <p class="text-2xl font-bold text-charcoal">
+                    KHEDME Is More Than An App. It’s Everyday Life, Finally Organized.
+                </p>
+                <p class="text-base text-charcoal/80">
+                    When you book a job on KHEDME, the money stays in Lebanon – in the hands of workers who live here, buy food here and pay school fees here.
+                </p>
+                <p class="text-base text-charcoal/80">
+                    Families gain calm and predictability. Workers gain visibility and dignity. Neighborhoods gain quiet, steady structure.
+                </p>
+                <p class="text-sm text-charcoal/70 italic">
+                    This is how we move from WhatsApp chaos to a Lebanon where daily life finally feels calm and fair.
+                </p>
+            </div>
+
+            <!-- DESKTOP -->
+            <div class="hidden md:block">
+                <p class="text-3xl font-bold text-charcoal mb-8 text-center fade-in">Why KHEDME — Because Lebanon Deserves Better Than Chaos</p>
+                <p class="text-lg text-charcoal/80 mb-4 text-center max-w-4xl mx-auto fade-in leading-relaxed">
+                    KHEDME is not a random list of phone numbers, and it is not a distant corporation trying to control everything. It is a neutral, transparent space where people who need help and people who need work can find each other fairly.
+                </p>
+                <p class="text-lg text-charcoal/80 mb-16 text-center max-w-4xl mx-auto fade-in leading-relaxed">
+                    Clients gain reliability, safety, and time. Workers gain visibility, dignity, and a path to grow. As more people use KHEDME, Lebanon gains something it has been missing for years: simple structure for everyday life.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
+                    <div class="card card-feature hover-lift fade-in">
+                        <h4 class="font-bold text-xl mb-3 text-primary">Real Profiles, Real People</h4>
+                        <p class="text-charcoal/80">You see who you are booking: services, areas, and details, all in one place. No guessing who will appear at your door.</p>
+                    </div>
+                    <div class="card card-feature hover-lift fade-in">
+                        <h4 class="font-bold text-xl mb-3 text-primary">Respectful Communication</h4>
+                        <p class="text-charcoal/80">Messages stay inside KHEDME and start after a booking, so both clients and workers are protected from harassment and random calls.</p>
+                    </div>
+                    <div class="card card-feature hover-lift fade-in">
+                        <h4 class="font-bold text-xl mb-3 text-primary">Cash On Delivery, Always</h4>
+                        <p class="text-charcoal/80">Payment goes directly from client to worker when the job is done. KHEDME does not hold your money or take control of it.</p>
+                    </div>
+                    <div class="card card-feature hover-lift fade-in">
+                        <h4 class="font-bold text-xl mb-3 text-primary">Built For Lebanese Neighborhoods</h4>
+                        <p class="text-charcoal/80">KHEDME understands how people here really live — buildings, neighbourhoods, word-of-mouth — and turns that reality into a clear, modern system instead of more noise.</p>
+                    </div>
+                </div>
+                
+                <p class="text-center text-lg text-charcoal/70 italic fade-in max-w-3xl mx-auto leading-relaxed">
+                    Every booking through KHEDME is not just a task completed. It is a worker going home with dignity, and a family going to bed with one less worry on their mind.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- STORIES -->
+    <section id="stories" class="bg-white">
+        <div class="max-w-6xl mx-auto mobile-container">
+            <!-- MOBILE -->
+            <div class="md:hidden px-5 py-10">
+                <p class="text-2xl font-bold text-charcoal mb-4 text-center">
+                    Real Stories From Homes And Workers In Lebanon
+                </p>
+                <p class="text-base text-charcoal/80 mb-6 text-center">
+                    KHEDME is already changing how people handle everyday work.
+                </p>
+
+                <div class="space-y-3">
+                    <div class="card hover-lift">
+                        <p class="text-base text-charcoal/80 italic mb-2 leading-relaxed">
+                            “I used to lose days chasing a cleaner through WhatsApp. With KHEDME I booked in minutes and enjoyed my weekend.”
+                        </p>
+                        <p class="text-sm font-semibold text-charcoal">Rami, Beirut</p>
+                    </div>
+                    <div class="card hover-lift">
+                        <p class="text-base text-charcoal/80 italic mb-2 leading-relaxed">
+                            “Before KHEDME I waited by the phone, hoping someone would remember me. Now I open the app and see my whole week.”
+                        </p>
+                        <p class="text-sm font-semibold text-charcoal">Hanan, Cleaner, Bourj Hammoud</p>
+                    </div>
+                    <div class="card hover-lift">
+                        <p class="text-base text-charcoal/80 italic mb-2 leading-relaxed">
+                            “Our trainees finally have a clear, trackable path from training to real jobs and income.”
+                        </p>
+                        <p class="text-sm font-semibold text-charcoal">Program Coordinator, Local NGO</p>
+                    </div>
+                </div>
+
+                <p class="mt-6 text-center text-sm text-charcoal/70 italic">
+                    The next story can be yours — whether you are booking help, offering your skills, or building programs for workers.
+                </p>
+            </div>
+
+            <!-- DESKTOP -->
+            <div class="hidden md:block">
+                <p class="text-3xl font-bold text-charcoal mb-6 text-center fade-in">Real Stories From Homes And Workers In Lebanon</p>
+                <p class="text-lg text-charcoal/80 mb-16 text-center max-w-3xl mx-auto fade-in leading-relaxed">
+                    KHEDME is already changing how people handle everyday work. It is still young, but the impact is real and growing, one story at a time.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+                    <div class="card hover-lift fade-in">
+                        <blockquote class="text-lg text-charcoal/80 italic mb-4 leading-relaxed">
+                            "I used to spend days chasing a cleaner through WhatsApp groups and friends of friends. With KHEDME I booked someone for the next day in a few minutes. For the first time in years, it felt easy."
+                        </blockquote>
+                        <p class="font-bold text-charcoal">– Rami, Beirut</p>
+                    </div>
+                    <div class="card hover-lift fade-in">
+                        <blockquote class="text-lg text-charcoal/80 italic mb-4 leading-relaxed">
+                            "Before KHEDME, I waited by the phone, hoping someone would remember me. Now I open the app and see my week: booked jobs, confirmed timings, and cash coming in. I finally feel like my work is part of something organized."
+                        </blockquote>
+                        <p class="font-bold text-charcoal">– Hanan, Cleaner, Bourj Hammoud</p>
+                    </div>
+                    <div class="card hover-lift fade-in">
+                        <blockquote class="text-lg text-charcoal/80 italic mb-4 leading-relaxed">
+                            "We train people with real skills, but connecting them to steady work used to be the hardest part. KHEDME gives our participants a visible place in the market and a trackable pipeline of jobs. We can actually see their income grow over time."
+                        </blockquote>
+                        <p class="font-bold text-charcoal">– Program Coordinator, Local NGO</p>
+                    </div>
+                </div>
+                
+                <p class="text-center text-lg text-charcoal/70 italic fade-in">
+                    The next story can be yours — whether you are booking help, offering your skills, or building programs for workers.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- MOVEMENT SECTION -->
+    <section class="bg-gradient-to-br from-primary to-charcoal" style="background: linear-gradient(135deg, #409FFF 0%, #212121 100%);">
+        <div class="max-w-6xl mx-auto text-center mobile-container">
+            <!-- MOBILE -->
+            <div class="md:hidden px-5 py-10">
+                <p class="text-2xl font-bold mb-4" style="color: white;">
+                    KHEDME Is A Quiet Movement For Everyday Life.
+                </p>
+                <p class="text-base mb-3 leading-relaxed" style="color: rgba(255,255,255,0.9);">
+                    When you book a job on KHEDME, the money doesn’t disappear into a distant system. It lands in the hands of someone who lives here, buys food here and pays school fees here.
+                </p>
+                <p class="text-base mb-4 leading-relaxed" style="color: rgba(255,255,255,0.9);">
+                    As more clients and workers join, thousands of small, honest jobs start to quietly stabilize families and neighborhoods from the bottom up.
+                </p>
+                <p class="text-sm italic max-w-3xl mx-auto leading-relaxed" style="color: rgba(255,255,255,0.9);">
+                    KHEDME becomes powerful only if we all take part. Together we can build the calm, dignified daily life we always imagined for this country.
+                </p>
+            </div>
+
+            <!-- DESKTOP -->
+            <div class="hidden md:block">
+                <p class="text-4xl font-bold mb-6 fade-in" style="color: white;">KHEDME Is More Than an App. It Is a Movement for Everyday Life.</p>
+                <p class="text-lg mb-4 fade-in max-w-4xl mx-auto leading-relaxed" style="color: rgba(255,255,255,0.9);">
+                    When someone books a job on KHEDME, that money does not disappear into a system. It lands in the hands of a worker who lives here, buys food here, and pays school fees here.
+                </p>
+                <p class="text-lg mb-12 fade-in max-w-4xl mx-auto leading-relaxed" style="color: rgba(255,255,255,0.9);">
+                    As more clients and workers join, the effect multiplies: thousands of small, honest jobs creating a quiet, steady push for Lebanon's real economy — from the bottom up, not the top down.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
+                    <div class="card bg-white/10 backdrop-blur-sm hover-lift fade-in" style="border: 1px solid rgba(255,255,255,0.2);">
+                        <h4 class="font-bold text-xl mb-3" style="color: white;">For Clients</h4>
+                        <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.9);">You save time, protect your energy, and know that every booking supports someone working honestly in your community.</p>
+                    </div>
+                    <div class="card bg-white/10 backdrop-blur-sm hover-lift fade-in" style="border: 1px solid rgba(255,255,255,0.2);">
+                        <h4 class="font-bold text-xl mb-3" style="color: white;">For Workers</h4>
+                        <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.9);">You step out of the shadows and into a visible, structured marketplace where your skills are seen and your effort is respected.</p>
+                    </div>
+                    <div class="card bg-white/10 backdrop-blur-sm hover-lift fade-in" style="border: 1px solid rgba(255,255,255,0.2);">
+                        <h4 class="font-bold text-xl mb-3" style="color: white;">For Partners</h4>
+                        <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.9);">You can connect your training programs, communities, or initiatives to a live system that shows real jobs, real income, and real change over time.</p>
+                    </div>
+                </div>
+                
+                <p class="text-lg italic fade-in max-w-3xl mx-auto leading-relaxed" style="color: rgba(255,255,255,0.9);">
+                    KHEDME only becomes powerful if we all take part. Clients, workers, and partners together can build the day-to-day life we have always imagined for this country.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FINAL CTA -->
+    <section id="download" class="bg-white">
+        <div class="max-w-6xl mx-auto mobile-container">
+            <!-- MOBILE -->
+            <div class="md:hidden px-5 py-10 text-center">
+                <p class="text-2xl font-bold text-charcoal mb-3">
+                    Ready To Take “Khedme” Off Your Mind?
+                </p>
+                <p class="text-base text-charcoal/80 mb-4">
+                    Download KHEDME now and turn WhatsApp chaos into a calm, organized everyday life – for you and the people who work with you.
+                </p>
+
+                <div class="flex flex-col gap-3 mb-5">
+                    <a href="#download" class="btn-primary bg-primary text-white w-full justify-center">
+                        <span>Get KHEDME</span>
+                    </a>
+                    <a href="#for-workers" class="btn-secondary bg-gray-100 border border-gray-200 text-charcoal w-full justify-center text-sm">
+                        Sign Up As A Worker
+                    </a>
+                </div>
+
+                <div class="card text-left">
+                    <p class="text-xs text-charcoal/70 mb-3">
+                        Not ready to download yet? Leave your email and we’ll let you know as KHEDME grows into more areas and adds new services.
+                    </p>
+                    <form class="flex flex-col gap-2">
+                        <input type="email" placeholder="Your email"
+                               class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary bg-white text-sm">
+                        <button type="submit" class="btn-primary bg-primary text-white px-6 py-3 text-sm justify-center">
+                            <span class="relative z-10">Stay Updated</span>
+                        </button>
+                    </form>
+                    <p class="text-[11px] text-charcoal/60 mt-2">
+                        No spam – only real news, real jobs and real progress.
+                    </p>
+                </div>
+            </div>
+
+            <!-- DESKTOP -->
+            <div class="hidden md:block text-center">
+                <p class="text-4xl font-bold text-charcoal mb-6 fade-in">Ready to Make Everyday Life Feel Lighter?</p>
+                <p class="text-lg text-charcoal/80 mb-4 fade-in max-w-4xl mx-auto leading-relaxed">
+                    KHEDME gives you a simple way to book trusted help in a few taps, instead of losing hours to calls, chats, and uncertainty.
+                </p>
+                <p class="text-lg text-charcoal/80 mb-16 fade-in max-w-4xl mx-auto leading-relaxed">
+                    Every booking is calm for a home and dignity for a worker — one job, one family, one neighbourhood at a time.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                    <a href="#download" class="btn-primary bg-primary text-white relative z-10">
+                        <span class="relative z-10">Get KHEDME</span>
+                    </a>
+                    <a href="#for-workers" class="btn-secondary bg-gray-100 border-2 border-gray-200 text-charcoal">
+                        Sign Up As A Worker
+                    </a>
+                </div>
+                
+                <!-- Email Form -->
+                <div class="card max-w-md mx-auto fade-in">
+                    <p class="text-sm text-charcoal/70 mb-4">Not ready to download yet? Leave your email and we will update you as KHEDME grows into more areas and adds new services.</p>
+                    <form class="flex flex-col sm:flex-row gap-2">
+                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary bg-white">
+                        <button type="submit" class="btn-primary bg-primary text-white px-6 py-3 text-sm">
+                            <span class="relative z-10">Stay Updated</span>
+                        </button>
+                    </form>
+                    <p class="text-xs text-charcoal/60 mt-3">No spam — only real news, real jobs, and real progress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="bg-charcoal text-white pt-16 pb-8 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="fade-in">
+                    <p class="text-white/90 leading-relaxed mb-6">
+                        KHEDME is a Lebanese-built platform dedicated to organizing everyday service work — from cleaning and moving to repairs, caregiving, and more. Our mission is to create fair, transparent infrastructure for small jobs in Lebanon, so clients, workers, and communities can finally enjoy a daily life that feels calmer, more dignified, and more hopeful.
+                    </p>
+                </div>
+                <div class="fade-in">
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-4">Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="about.html" class="text-white/80 hover:text-primary transition">About</a></li>
+                            <li><a href="privacy.html" class="text-white/80 hover:text-primary transition">Privacy Policy</a></li>
+                            <li><a href="terms.html" class="text-white/80 hover:text-primary transition">Terms</a></li>
+                            <li><a href="support.html" class="text-white/80 hover:text-primary transition">Support</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Contact</h4>
+                        <p class="text-white text-sm md:text-base font-medium">
+                            For support, partnerships, or media:
+                        </p>
+                        <a href="mailto:info@khedme.org"
+                           class="inline-block mt-2 px-3 py-1.5 rounded-full bg-amber-300 text-charcoal text-sm md:text-base font-semibold hover:bg-amber-200 transition">
+                            info@khedme.org
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-white/80">
+                    🇱🇧 Made in Lebanon, for Lebanon. With ❤️ for workers and families.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Wait for DOM and GSAP to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize GSAP
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                
+                // Set initial state - make all fade-in elements visible first
+                gsap.utils.toArray('.fade-in').forEach((element) => {
+                    gsap.set(element, { opacity: 1, y: 0 });
+                });
+                
+                // Stagger animations for better visual flow
+                gsap.utils.toArray('.fade-in').forEach((element, index) => {
+                    gsap.fromTo(element, 
+                        { opacity: 0, y: 40, scale: 0.95 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            duration: 0.9,
+                            ease: 'power3.out',
+                            delay: index * 0.05,
+                            scrollTrigger: {
+                                trigger: element,
+                                start: 'top 85%',
+                                toggleActions: 'play none none none',
+                                once: true
+                            }
+                        }
+                    );
+                });
+                
+                // Parallax effect for hero phone
+                const heroPhone = document.querySelector('.float-animation');
+                if (heroPhone) {
+                    gsap.to(heroPhone, {
+                        y: -30,
+                        scrollTrigger: {
+                            trigger: heroPhone,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 1
+                        }
+                    });
+                }
+                
+                // Animate cards on hover
+                gsap.utils.toArray('.card').forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        gsap.to(card, { scale: 1.02, duration: 0.3, ease: 'power2.out' });
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        gsap.to(card, { scale: 1, duration: 0.3, ease: 'power2.out' });
+                    });
+                });
+            } else {
+                // Fallback if GSAP doesn't load - ensure everything is visible
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }
+        });
+        
+        // Sticky nav
+        const nav = document.querySelector('.sticky-nav');
+        if (nav) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+        }
+        
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Waitlist form
+        const waitlistForm = document.querySelector('form');
+        if (waitlistForm) {
+            waitlistForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const emailInput = waitlistForm.querySelector('input[type="email"]');
+                if (emailInput && emailInput.value) {
+                    alert('Thank you! We\'ll notify you when KHEDME launches.');
+                    waitlistForm.reset();
+                }
+            });
+        }
+        
+        // Ensure all text is visible on load
+        window.addEventListener('load', function() {
+            // Force visibility of all text elements
+            document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, a, li, div').forEach(el => {
+                const computedStyle = window.getComputedStyle(el);
+                if (computedStyle.opacity === '0' && !el.classList.contains('fade-in')) {
+                    el.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

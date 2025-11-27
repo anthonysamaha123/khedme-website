@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use – KHEDME</title>
+    <meta name="description" content="The terms that govern your use of the KHEDME website and mobile app in Lebanon.">
+
+    <link rel="icon" type="image/png" href="assets/icon-1024.png">
+    <link rel="apple-touch-icon" href="assets/icon-1024.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #409FFF;
+            --charcoal: #1a1a1a;
+            --background: #fafafa;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--charcoal);
+            background: var(--background);
+            line-height: 1.7;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            transition: box-shadow 0.25s ease;
+        }
+        .sticky-nav.scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        section {
+            position: relative;
+            width: 100%;
+            padding: 4.5rem 1.5rem;
+        }
+        @media (min-width: 640px) {
+            section {
+                padding: 5.5rem 2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            section {
+                padding: 6.5rem 2rem;
+            }
+        }
+        .max-w-6xl,
+        .max-w-5xl,
+        .max-w-4xl {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card {
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(15,23,42,0.08);
+        }
+        @media (max-width: 640px) {
+            .card {
+                padding: 1.75rem;
+            }
+        }
+        .toc-link {
+            display: block;
+            padding: 0.45rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+        .toc-link:hover {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="sticky-nav">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between px-4 md:px-6 lg:px-0 py-3 md:py-4">
+                <a href="index.html" class="flex items-center space-x-2.5 md:space-x-3">
+                    <img src="assets/icon-1024.png" alt="KHEDME" class="w-9 h-9 md:w-11 md:h-11 rounded-lg" />
+                    <img src="assets/Word logo.png" alt="KHEDME Logo" class="h-6 md:h-7" />
+                </a>
+                <div class="hidden lg:flex items-center space-x-1 text-sm">
+                    <a href="index.html#for-clients" class="px-3 py-2 text-gray-700 hover:text-blue-500">For Clients</a>
+                    <a href="index.html#for-workers" class="px-3 py-2 text-gray-700 hover:text-blue-500">For Workers</a>
+                    <a href="index.html#how-it-works" class="px-3 py-2 text-gray-700 hover:text-blue-500">How It Works</a>
+                    <a href="index.html#categories" class="px-3 py-2 text-gray-700 hover:text-blue-500">Categories</a>
+                    <a href="index.html#stories" class="px-3 py-2 text-gray-700 hover:text-blue-500">Stories</a>
+                    <span class="ml-4 px-3 py-2 rounded-full bg-blue-50 text-blue-600 font-semibold">Terms</span>
+                    <a href="index.html#download" class="ml-4 inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-semibold bg-blue-500 text-white shadow">
+                        Get KHEDME
+                    </a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal hover:text-blue-500" aria-label="Toggle navigation">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18M3 12h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+                <div class="px-4 py-3 space-y-1 text-sm">
+                    <a href="index.html#for-clients" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">For Clients</a>
+                    <a href="index.html#for-workers" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">For Workers</a>
+                    <a href="index.html#how-it-works" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">How It Works</a>
+                    <a href="index.html#categories" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">Categories</a>
+                    <a href="index.html#stories" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">Stories</a>
+                    <span class="block px-3 py-2.5 text-blue-600 font-semibold rounded-lg">Terms of Use</span>
+                    <div class="pt-3 mt-2 border-t border-gray-100">
+                        <a href="index.html#download" class="w-full inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-semibold bg-blue-500 text-white shadow">
+                            Get KHEDME
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="bg-white pb-6 md:pb-8 pt-10 md:pt-14">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-[1.6fr,1.1fr] gap-10 items-center">
+                <div>
+                    <p class="text-xs font-semibold tracking-[0.18em] text-blue-500 uppercase mb-2">Terms of Use</p>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-charcoal mb-4">
+                        The Agreement That Keeps Clients, Workers And KHEDME Aligned.
+                    </h1>
+                    <p class="text-sm md:text-base text-gray-700 mb-4">
+                        These Terms explain what KHEDME is (and is not), how you can use the Platform, and where responsibility sits between Clients, Workers, and KHEDME.
+                    </p>
+                    <p class="text-xs md:text-sm text-gray-500 mb-6">Last updated: 27 November 2025</p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="index.html#download" class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-blue-500 text-white shadow">
+                            Back to KHEDME app page
+                        </a>
+                        <a href="support.html" class="inline-flex items-center justify-center px-3 py-2 rounded-full text-xs md:text-sm font-semibold text-blue-700 bg-blue-50">
+                            Need help with these Terms?
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex justify-end">
+                    <div class="card w-full max-w-sm bg-blue-50 border-blue-100">
+                        <p class="text-base font-semibold text-gray-900 mb-2 uppercase tracking-wide">AT A GLANCE</p>
+                        <ul class="text-xs text-gray-700 space-y-1">
+                            <li>• KHEDME is a neutral marketplace, not an employer or agent.</li>
+                            <li>• Clients and Workers agree job details and pay each other directly.</li>
+                            <li>• The Platform is provided “as is” with reasonable limits on liability.</li>
+                            <li>• Lebanese law applies, with courts of Beirut as the main venue.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOC -->
+    <section class="bg-gray-50 pt-2 pb-8 md:pb-10">
+        <div class="max-w-5xl mx-auto">
+            <div class="card">
+                <h2 class="text-sm font-semibold text-gray-800 mb-3">Quick Navigation</h2>
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-1">
+                    <a href="#section-1" class="toc-link text-gray-700">Agreement To Terms</a>
+                    <a href="#section-2" class="toc-link text-gray-700">Our Role</a>
+                    <a href="#section-3" class="toc-link text-gray-700">Eligibility And Accounts</a>
+                    <a href="#section-4" class="toc-link text-gray-700">Use Of The Platform</a>
+                    <a href="#section-5" class="toc-link text-gray-700">Booking, Services & Payments</a>
+                    <a href="#section-6" class="toc-link text-gray-700">Communications & Messaging</a>
+                    <a href="#section-7" class="toc-link text-gray-700">Promotions And Visibility</a>
+                    <a href="#section-8" class="toc-link text-gray-700">Intellectual Property</a>
+                    <a href="#section-9" class="toc-link text-gray-700">User Content</a>
+                    <a href="#section-10" class="toc-link text-gray-700">Disclaimers</a>
+                    <a href="#section-11" class="toc-link text-gray-700">Limitation Of Liability</a>
+                    <a href="#section-12" class="toc-link text-gray-700">Indemnity</a>
+                    <a href="#section-13" class="toc-link text-gray-700">Termination</a>
+                    <a href="#section-14" class="toc-link text-gray-700">Governing Law & Jurisdiction</a>
+                    <a href="#section-15" class="toc-link text-gray-700">Changes To These Terms</a>
+                    <a href="#section-16" class="toc-link text-gray-700">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERMS BODY -->
+    <section class="bg-white pt-4 pb-14">
+        <div class="max-w-5xl mx-auto">
+            <div class="space-y-5">
+                <div id="section-1" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Agreement To Terms</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        These Terms of Use (“Terms”) govern your access to and use of:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>The website khedme.org (the “Website”), and</li>
+                        <li>The KHEDME mobile application (the “App”),</li>
+                    </ul>
+                    <p>
+                        together referred to as the “Platform”.
+                    </p>
+                    <p>
+                        By accessing or using the Platform, you agree to be bound by these Terms. If you do not agree, you must not use the Platform.
+                    </p>
+                    </div>
+                </div>
+
+                <div id="section-2" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Our Role</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p class="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">IN SIMPLE TERMS: KHEDME connects Clients and Workers but does not become a party to their service contracts.</p>
+                    <p>
+                        KHEDME provides a neutral, structured marketplace that connects:
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li>Individuals and businesses seeking services (“Clients”) with</li>
+                        <li>Independent service providers (“Workers”) offering those services.</li>
+                    </ul>
+                    <p>KHEDME:</p>
+                    <ul class="list-disc list-inside">
+                        <li>Is not a party to the contract for services between Clients and Workers.</li>
+                        <li>Is not an employer, agent, or representative of Workers.</li>
+                        <li>Does not supervise, direct, or control how services are performed.</li>
+                    </ul>
+                    <p>
+                        Clients and Workers are solely responsible for:
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li>The terms of the job, including scope, timing, and price</li>
+                        <li>The quality and completion of the work</li>
+                        <li>Any obligations under labor, tax, social security, or other applicable laws.</li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div id="section-3" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Eligibility And Accounts</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        To use the Platform, you must:
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li>Be at least 18 years old</li>
+                        <li>Have the capacity to enter into binding agreements under applicable law</li>
+                        <li>Provide accurate, complete information during registration and keep it updated.</li>
+                    </ul>
+                    <p>You are responsible for:</p>
+                    <ul class="list-disc list-inside">
+                        <li>Maintaining the confidentiality of your login credentials</li>
+                        <li>All activities carried out under your account</li>
+                    </ul>
+                    <p>
+                        You must notify us immediately if you suspect any unauthorized use of your account.
+                    </p>
+                    <p>
+                        We reserve the right, at our discretion, to suspend or terminate accounts that violate these Terms or applicable law.
+                    </p>
+                    </div>
+                </div>
+
+                <div id="section-4" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Use Of The Platform</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        When using KHEDME, you agree to:
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li>Use the Platform only for lawful purposes</li>
+                        <li>Respect other users and avoid harassment, abuse, or discriminatory behavior</li>
+                        <li>Not upload or share content that is illegal, offensive, or harmful</li>
+                        <li>Not attempt to interfere with the security or normal functioning of the Platform</li>
+                        <li>Not scrape, copy, or use automated tools to access the Platform without our permission</li>
+                    </ul>
+                    <p>
+                        We may, at our discretion, remove content, suspend features, or take other actions where we believe it is necessary to protect users, comply with the law, or preserve the integrity of the Platform.
+                    </p>
+                    </div>
+                </div>
+
+                <div id="section-5" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Booking, Services &amp; Payments</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+
+                    <h3 class="font-semibold mt-2 mb-1">Booking Process</h3>
+                    <p>Clients can browse categories and Workers in their area.</p>
+                    <ul class="list-disc list-inside">
+                        <li>Clients may submit booking requests with job details and preferred time.</li>
+                        <li>Workers may accept or decline booking requests based on their availability and preferences.</li>
+                    </ul>
+                    <p>
+                        The details of any job (scope, price, timing, special conditions) are agreed directly between the Client and the Worker.
+                    </p>
+
+                    <h3 class="font-semibold mt-2 mb-1">Payments</h3>
+                    <p>Unless otherwise clearly indicated in the App:</p>
+                    <ul class="list-disc list-inside">
+                        <li>Payments for services are made directly between the Client and Worker.</li>
+                        <li>KHEDME does not collect or hold client funds for jobs and is not a payment intermediary for job fees.</li>
+                    </ul>
+                    <p>
+                        If we later introduce non-cash payment options or in-app wallets, these will be clearly explained in the Platform and updated in these Terms and/or separate terms, as required.
+                    </p>
+
+                    <h3 class="font-semibold mt-2 mb-1">Cancellations &amp; Disputes</h3>
+                    <p>Clients and Workers are encouraged to:</p>
+                    <ul class="list-disc list-inside">
+                        <li>Communicate promptly regarding any change of plan, delay, or cancellation</li>
+                        <li>Act in good faith and with respect for each other’s time</li>
+                    </ul>
+                    <p>KHEDME is not responsible for:</p>
+                    <ul class="list-disc list-inside">
+                        <li>No-shows, delays, or cancellations by either party</li>
+                        <li>The quality, safety, or outcome of any job</li>
+                        <li>Any damage or loss arising from services provided by Workers or demands by Clients.</li>
+                    </ul>
+                    <p>
+                        However, we may, at our discretion, assist with basic communication or guidance in the event of a dispute, without assuming any legal responsibility or obligation to resolve it.
+                    </p>
+                    </div>
+                </div>
+
+                <div id="section-6" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Communications &amp; Messaging</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        KHEDME includes an in-app messaging system with clear boundaries:
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li>Workers cannot initiate chat with Clients.</li>
+                        <li>Chat is opened by the Client, typically after a booking or inquiry.</li>
+                        <li>Messaging must be used only for job-related communication.</li>
+                    </ul>
+                    <p>You agree not to:</p>
+                    <ul class="list-disc list-inside">
+                        <li>Send abusive, threatening, or harassing messages</li>
+                        <li>Share illegal content, or content that infringes third-party rights</li>
+                        <li>Use messaging to solicit activities that violate these Terms or the law.</li>
+                    </ul>
+                    <p>
+                        We may review, access, or retain certain communications where necessary to:
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li>Respond to complaints</li>
+                        <li>Investigate misuse, fraud, or safety concerns</li>
+                        <li>Comply with applicable law</li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div id="section-7" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Promotions And Visibility (Workers)</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        From time to time, KHEDME may offer optional visibility or promotion features for Workers (for example, boosted visibility in certain areas or categories). Any such features:
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li>Are optional for Workers</li>
+                        <li>Do not affect the requirement that Clients choose which Worker to book</li>
+                        <li>Do not change the fact that KHEDME is a neutral marketplace and not a party to the service contract</li>
+                    </ul>
+                    <p>
+                        Any terms, pricing, or conditions for such promotional features will be clearly explained in the App or Website.
+                    </p>
+                    </div>
+                </div>
+
+                <div id="section-8" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Intellectual Property</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        All rights in and to:
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li>The Platform, including its software, design, logos, branding, and content (other than user content), and</li>
+                        <li>The “KHEDME” name and related trademarks,</li>
+                    </ul>
+                    <p>
+                        are owned or licensed by KHEDME and protected by applicable intellectual property laws.
+                    </p>
+                    <p>You may:</p>
+                    <ul class="list-disc list-inside">
+                        <li>Use the Platform and its content solely for personal or internal business use, in accordance with these Terms.</li>
+                    </ul>
+                    <p>You may not:</p>
+                    <ul class="list-disc list-inside">
+                        <li>Copy, modify, distribute, or create derivative works based on the Platform or its content (except your own content),</li>
+                        <li>Remove or alter any copyright, trademark, or proprietary notices,</li>
+                        <li>Use the KHEDME brand or trademarks without our prior written consent.</li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div id="section-9" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">User Content</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>Users may upload or provide content, such as:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Profile photos</li>
+                        <li>Service descriptions</li>
+                        <li>Portfolio images</li>
+                        <li>Text in messages or profile bios</li>
+                    </ul>
+                    <p>By providing content, you:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Represent that you have the right to do so</li>
+                        <li>Grant KHEDME a non-exclusive, royalty-free, worldwide license to use, display, and reproduce that content in connection with operating and promoting the Platform (for example, showing your profile to potential Clients)</li>
+                    </ul>
+                    <p>We may remove or disable content that we reasonably believe:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Violates these Terms or the law</li>
+                        <li>Infringes third-party rights</li>
+                        <li>Is harmful, misleading, or inappropriate</li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div id="section-10" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Disclaimers</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p class="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">IN SIMPLE TERMS: KHEDME provides the Platform "as is", without guarantees about uninterrupted service or user behaviour.</p>
+                    <p>To the fullest extent permitted by law:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>The Platform is provided "as is" and "as available", without any warranties of any kind, whether express or implied.</li>
+                        <li>KHEDME does not warrant that the Platform will be uninterrupted, error-free, or free from harmful components.</li>
+                        <li>KHEDME does not guarantee the quality, safety, or suitability of any services provided by Workers, nor the reliability or behavior of any user.</li>
+                    </ul>
+                    <p>Clients and Workers use the Platform at their own risk and are solely responsible for their interactions and agreements.</p>
+                    </div>
+                </div>
+
+                <div id="section-11" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Limitation Of Liability</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p class="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">IN SIMPLE TERMS: our liability is limited to a reasonable amount under Lebanese law.</p>
+                    <p>To the fullest extent permitted by applicable law:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>KHEDME, its founders, employees, and partners shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, or goodwill, arising out of or in connection with your use of the Platform.</li>
+                        <li>KHEDME's total aggregate liability to you for any claims arising out of or related to the Platform or these Terms shall not exceed, in any case, the greater of: (i) the amount you have paid to KHEDME for paid Platform features in the six (6) months preceding the event giving rise to the claim, or (ii) the equivalent of one hundred U.S. dollars (USD 100).</li>
+                    </ul>
+                    <p>Some jurisdictions do not allow certain limitations or exclusions of liability. In such cases, some of the above limitations may not apply to you, but only to the extent prohibited by law.</p>
+                    </div>
+                </div>
+
+                <div id="section-12" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Indemnity</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>You agree to indemnify and hold harmless KHEDME, its founders, employees, and partners from and against any claims, demands, losses, liabilities, and expenses (including reasonable legal fees) arising out of or related to:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Your use of the Platform,</li>
+                        <li>Your violation of these Terms or applicable law, or</li>
+                        <li>Your violation of any rights of another person or entity.</li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div id="section-13" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Termination</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>We may, at our sole discretion and without prior notice, suspend or terminate your access to all or part of the Platform if:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>You breach these Terms or applicable law, or</li>
+                        <li>We believe it is necessary to protect other users, our systems, or our business.</li>
+                    </ul>
+                    <p>You may stop using the Platform and request account deletion at any time by contacting us.</p>
+                    <p>Upon termination:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Your right to use the Platform ceases immediately,</li>
+                        <li>Certain provisions that by their nature should survive (such as intellectual property, limitation of liability, and indemnity) will remain in effect.</li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div id="section-14" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Governing Law And Jurisdiction</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p class="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">IN SIMPLE TERMS: Lebanese law applies, and courts of Beirut handle disputes.</p>
+                    <p>These Terms and any dispute or claim arising out of or in connection with them or the Platform shall be governed by and construed in accordance with the laws of Lebanon, without regard to conflict-of-law principles.</p>
+                    <p>Subject to any mandatory legal provisions, the courts of Beirut, Lebanon shall have exclusive jurisdiction over any dispute arising out of or relating to these Terms or the Platform.</p>
+                    </div>
+                </div>
+
+                <div id="section-15" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Changes To These Terms</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>We may update these Terms from time to time. When we do, we will:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Post the updated Terms on khedme.org, and</li>
+                        <li>Update the "Last updated" date above.</li>
+                    </ul>
+                    <p>If changes are material, we may also notify you through the App or by other reasonable means.</p>
+                    <p>Your continued use of the Platform after the updated Terms become effective constitutes your acceptance of the changes.</p>
+                    </div>
+                </div>
+
+                <div id="section-16" class="card">
+                    <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Contact</h2>
+                    <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>For questions about these Terms, please contact:</p>
+                    <p>KHEDME – Legal</p>
+                    <p>Email: <a href="mailto:info@khedme.org" class="text-blue-600">info@khedme.org</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white pt-14 pb-8 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-10">
+                <div>
+                    <p class="text-white/90 leading-relaxed mb-6 text-sm md:text-base">
+                        KHEDME is a Lebanese-built platform dedicated to organising everyday service work — from cleaning and moving to repairs, caregiving, and more. Our mission is to create fair, transparent infrastructure for small jobs in Lebanon, so clients, workers, and communities can finally enjoy a daily life that feels calmer, more dignified, and more hopeful.
+                    </p>
+                </div>
+                <div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-4">Links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="about.html" class="text-white/80 hover:text-primary transition">About</a></li>
+                            <li><a href="privacy.html" class="text-white/80 hover:text-primary transition">Privacy Policy</a></li>
+                            <li><a href="terms.html" class="text-white/80 hover:text-primary transition">Terms</a></li>
+                            <li><a href="support.html" class="text-white/80 hover:text-primary transition">Support</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Contact</h4>
+                        <p class="text-white text-sm md:text-base font-medium">
+                            For support, partnerships, or media:
+                        </p>
+                        <a href="mailto:info@khedme.org"
+                           class="inline-block mt-2 px-3 py-1.5 rounded-full bg-amber-300 text-charcoal text-sm md:text-base font-semibold hover:bg-amber-200 transition">
+                            info@khedme.org
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-white/20 pt-6 text-center text-sm">
+                <p class="text-white/80">
+                    🇱🇧 Made in Lebanon, for Lebanon. With ❤️ for workers and families.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.querySelector('.sticky-nav');
+        if (nav) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 8) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+        }
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
+
+

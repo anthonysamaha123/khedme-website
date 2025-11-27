@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support, Safety &amp; Complaints – KHEDME</title>
+    <meta name="description" content="How to reach KHEDME for support, safety concerns, disputes, feedback, and data requests.">
+
+    <link rel="icon" type="image/png" href="assets/icon-1024.png">
+    <link rel="apple-touch-icon" href="assets/icon-1024.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #409FFF;
+            --charcoal: #1a1a1a;
+            --background: #fafafa;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--charcoal);
+            background: var(--background);
+            line-height: 1.7;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            transition: box-shadow 0.25s ease;
+        }
+        .sticky-nav.scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        section {
+            position: relative;
+            width: 100%;
+            padding: 4.5rem 1.5rem;
+        }
+        @media (min-width: 640px) {
+            section {
+                padding: 5.5rem 2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            section {
+                padding: 6.5rem 2rem;
+            }
+        }
+        .max-w-6xl,
+        .max-w-5xl,
+        .max-w-4xl {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card {
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(15,23,42,0.08);
+        }
+        @media (max-width: 640px) {
+            .card {
+                padding: 1.75rem;
+            }
+        }
+        .support-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .toc-link {
+            display: block;
+            padding: 0.55rem 0.9rem;
+            border-radius: 0.9rem;
+            font-size: 0.85rem;
+        }
+        .toc-link:hover {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="sticky-nav">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between px-4 md:px-6 lg:px-0 py-3 md:py-4">
+                <a href="index.html" class="flex items-center space-x-2.5 md:space-x-3">
+                    <img src="assets/icon-1024.png" alt="KHEDME" class="w-9 h-9 md:w-11 md:h-11 rounded-lg" />
+                    <img src="assets/Word logo.png" alt="KHEDME Logo" class="h-6 md:h-7" />
+                </a>
+                <div class="hidden lg:flex items-center space-x-1 text-sm">
+                    <a href="index.html#for-clients" class="px-3 py-2 text-gray-700 hover:text-blue-500">For Clients</a>
+                    <a href="index.html#for-workers" class="px-3 py-2 text-gray-700 hover:text-blue-500">For Workers</a>
+                    <a href="index.html#how-it-works" class="px-3 py-2 text-gray-700 hover:text-blue-500">How It Works</a>
+                    <a href="index.html#categories" class="px-3 py-2 text-gray-700 hover:text-blue-500">Categories</a>
+                    <a href="index.html#stories" class="px-3 py-2 text-gray-700 hover:text-blue-500">Stories</a>
+                    <span class="ml-4 px-3 py-2 rounded-full bg-blue-50 text-blue-600 font-semibold">Support</span>
+                    <a href="index.html#download" class="ml-4 inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-semibold bg-blue-500 text-white shadow">
+                        Get KHEDME
+                    </a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal hover:text-blue-500" aria-label="Toggle navigation">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18M3 12h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+                <div class="px-4 py-3 space-y-1 text-sm">
+                    <a href="index.html#for-clients" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">For Clients</a>
+                    <a href="index.html#for-workers" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">For Workers</a>
+                    <a href="index.html#how-it-works" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">How It Works</a>
+                    <a href="index.html#categories" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">Categories</a>
+                    <a href="index.html#stories" class="block px-3 py-2.5 text-gray-800 hover:bg-gray-50 rounded-lg">Stories</a>
+                    <span class="block px-3 py-2.5 text-blue-600 font-semibold rounded-lg">Support &amp; Complaints</span>
+                    <div class="pt-3 mt-2 border-t border-gray-100">
+                        <a href="index.html#download" class="w-full inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-semibold bg-blue-500 text-white shadow">
+                            Back to app page
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="bg-gradient-to-br from-blue-500 to-slate-900 text-white pb-10 md:pb-12 pt-10 md:pt-14">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-[1.6fr,1.1fr] gap-10 items-center">
+                <div>
+                    <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-2 text-blue-100">
+                        Support, Safety &amp; Complaints
+                    </p>
+                    <h1 class="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
+                        If Something Feels Wrong, You Won't Be Left Alone.
+                    </h1>
+                    <p class="text-sm md:text-base text-blue-100 mb-5 max-w-xl">
+                        KHEDME was built for trust. If you ever feel unsafe, disrespected, or confused about a job, this page shows exactly how to reach us and what we can do.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 mb-4">
+                        <a href="mailto:info@khedme.org?subject=Support%20%E2%80%93%20KHEDME" class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-white text-blue-700 shadow">
+                            Email support now
+                        </a>
+                        <a href="index.html#download" class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs md:text-sm font-semibold border border-blue-100 text-blue-50">
+                            Back to KHEDME app page
+                        </a>
+                    </div>
+                    <p class="text-xs md:text-sm text-blue-100/90">
+                        You can write in Arabic (Lebanese), English, or French. Short, simple emails are totally fine.
+                    </p>
+                </div>
+                <div class="hidden md:flex justify-end">
+                    <div class="card w-full max-w-sm bg-white/5 border border-white/25 text-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="support-icon bg-emerald-500/90">
+                                <span class="text-white text-xl">🛡️</span>
+                            </div>
+                            <p class="text-base font-semibold text-white uppercase tracking-wide">SAFETY COMES FIRST</p>
+                        </div>
+                        <p class="text-xs text-blue-50 mb-2">
+                            If you are in immediate danger or if a crime has been committed, please contact local emergency services first. Once you are safe, you can contact us with the details.
+                        </p>
+                        <p class="text-[11px] text-blue-100/90">
+                            We can suspend accounts, investigate behavior, and cooperate with competent authorities where required by law.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK ISSUE CARDS -->
+    <section class="bg-white pt-6 pb-8 md:pb-10">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                <a href="#section-1" class="card flex flex-col gap-1 hover:shadow-md transition-shadow">
+                    <div class="support-icon bg-blue-50 mb-1">
+                        <span class="text-blue-600 text-lg">✉️</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-900">How to contact support</p>
+                    <p class="text-xs text-gray-600">
+                        What to include in your email so we can help you faster.
+                    </p>
+                </a>
+                <a href="#section-2" class="card flex flex-col gap-1 hover:shadow-md transition-shadow">
+                    <div class="support-icon bg-blue-50 mb-1">
+                        <span class="text-blue-600 text-lg">🛠️</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-900">Types of issues</p>
+                    <p class="text-xs text-gray-600">
+                        Technical problems, account issues, job concerns and more.
+                    </p>
+                </a>
+                <a href="#section-3" class="card flex flex-col gap-1 hover:shadow-md transition-shadow">
+                    <div class="support-icon bg-rose-50 mb-1">
+                        <span class="text-rose-500 text-lg">⚠️</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-900">Serious incidents &amp; safety</p>
+                    <p class="text-xs text-gray-600">
+                        What to do when someone feels at risk or a crime may have occurred.
+                    </p>
+                </a>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4">
+                <a href="#section-4" class="card flex flex-col gap-1 hover:shadow-md transition-shadow">
+                    <div class="support-icon bg-amber-50 mb-1">
+                        <span class="text-amber-500 text-lg">⚖️</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-900">Complaints &amp; disputes</p>
+                    <p class="text-xs text-gray-600">
+                        How we look at complaints and what we can (and cannot) do.
+                    </p>
+                </a>
+                <a href="#section-5" class="card flex flex-col gap-1 hover:shadow-md transition-shadow">
+                    <div class="support-icon bg-emerald-50 mb-1">
+                        <span class="text-emerald-500 text-lg">💡</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-900">Feedback &amp; suggestions</p>
+                    <p class="text-xs text-gray-600">
+                        Help us make KHEDME clearer, fairer, and more protective.
+                    </p>
+                </a>
+                <a href="#section-6" class="card flex flex-col gap-1 hover:shadow-md transition-shadow">
+                    <div class="support-icon bg-slate-50 mb-1">
+                        <span class="text-slate-600 text-lg">🌐</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-900">Language</p>
+                    <p class="text-xs text-gray-600">
+                        Use the language and tone that feels natural to you.
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BODY CONTENT -->
+    <section class="bg-gray-50 pt-4 pb-14">
+        <div class="max-w-5xl mx-auto space-y-5">
+            <div id="section-1" class="card">
+                <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">How To Contact Support</h2>
+                <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        For any issue related to the Website or App, you can reach us at:
+                    </p>
+                    <p class="font-semibold">
+                        Email: <a href="mailto:info@khedme.org" class="text-blue-600">info@khedme.org</a>
+                    </p>
+                    <p>
+                        To help us understand and respond faster, please include, where relevant:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Your full name</li>
+                        <li>Your phone number (used in KHEDME)</li>
+                        <li>Whether you are a Client or Worker</li>
+                        <li>A clear description of the issue (screenshots if possible)</li>
+                        <li>The job reference or booking date, if the issue is about a specific job</li>
+                    </ul>
+                    <p class="text-sm text-gray-700">
+                        We will do our best to acknowledge your request within a reasonable time and aim to respond as quickly as our small team and local conditions allow.
+                    </p>
+                </div>
+            </div>
+
+            <div id="section-2" class="card">
+                <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Types Of Issues We Can Help With</h2>
+                <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>You can contact us for:</p>
+                    <p class="font-medium">Technical problems</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Trouble logging in or verifying your phone</li>
+                        <li>App errors, bugs, or crashes</li>
+                        <li>Issues with notifications or messages</li>
+                    </ul>
+                    <p class="font-medium">Account &amp; profile issues</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Updating your profile information</li>
+                        <li>Requesting account deletion</li>
+                        <li>Reporting a fake or misleading profile</li>
+                    </ul>
+                    <p class="font-medium">Job-related concerns</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>A Worker not showing up or cancelling at the last minute</li>
+                        <li>A Client behaving inappropriately</li>
+                        <li>Misunderstandings about job details or expectations</li>
+                    </ul>
+                    <p class="font-medium">Safety, abuse, or inappropriate conduct</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Harassment, discrimination, or threats</li>
+                        <li>Unsafe behavior in a home or work environment</li>
+                        <li>Any situation where somebody feels at risk</li>
+                    </ul>
+                    <p class="font-medium">Privacy &amp; data requests</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Questions about how we handle your data</li>
+                        <li>Requests to access, correct, or delete information</li>
+                        <li>Concerns about data security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="section-3" class="card">
+                <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Serious Incidents &amp; Safety</h2>
+                <div class="text-sm md:text-base text-gray-800 space-y-3">
+                    <div class="bg-rose-50 border border-rose-200 rounded-lg p-3 text-sm">
+                        <p class="font-semibold text-rose-700 mb-1">If you believe you are in immediate danger, or if a crime has been committed, please contact local emergency services before contacting us.</p>
+                        <p class="text-rose-700">
+                            Your safety, and the safety of others, comes first. Once you are safe, we can help document what happened and take action on the Platform.
+                        </p>
+                    </div>
+                    <p>
+                        After you are safe, you can:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>
+                            Email us at <a href="mailto:info@khedme.org?subject=URGENT%20%E2%80%93%20SAFETY" class="text-blue-600">info@khedme.org</a>
+                            with "URGENT – SAFETY" in the subject line
+                        </li>
+                        <li>Provide as many details as you can safely share (without putting yourself at risk)</li>
+                    </ul>
+                    <p>
+                        We may:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Temporarily suspend accounts while we investigate</li>
+                        <li>Contact the individuals involved for additional information</li>
+                        <li>Cooperate with competent authorities where required by law</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="section-4" class="card">
+                <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Complaints &amp; Dispute Handling</h2>
+                <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        If you have a complaint about another user or about our Platform, write to us at <a href="mailto:info@khedme.org" class="text-blue-600">info@khedme.org</a> and clearly explain:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>What happened</li>
+                        <li>When and where it happened</li>
+                        <li>Who was involved</li>
+                        <li>What you would consider a fair outcome (if any)</li>
+                    </ul>
+                    <p>
+                        We will:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Review your complaint in good faith</li>
+                        <li>Ask for additional details if needed</li>
+                        <li>Consider appropriate action within the Platform (warnings, suspensions, or other measures, at our discretion)</li>
+                    </ul>
+                    <p class="text-sm text-gray-700">
+                        While KHEDME is not a court or arbitration body and cannot guarantee the outcome of any dispute between Client and Worker, we take complaints seriously and aim to promote a respectful and safe environment for everyone.
+                    </p>
+                </div>
+            </div>
+
+            <div id="section-5" class="card">
+                <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Feedback &amp; Suggestions</h2>
+                <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        KHEDME is still growing, and we welcome constructive ideas. If you have suggestions on how we can:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Make the App clearer</li>
+                        <li>Better protect workers or clients</li>
+                        <li>Improve categories, flows, or features</li>
+                    </ul>
+                    <p>
+                        you can send them to <a href="mailto:info@khedme.org?subject=Feedback" class="text-blue-600">info@khedme.org</a> with the subject line "Feedback".
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        We may use your suggestions to improve KHEDME, but sending suggestions does not create any ownership or compensation rights unless we explicitly agree otherwise in writing.
+                    </p>
+                </div>
+            </div>
+
+            <div id="section-6" class="card">
+                <h2 class="text-lg md:text-xl font-semibold mb-3 text-gray-900">Language</h2>
+                <div class="text-sm md:text-base text-gray-800 space-y-2">
+                    <p>
+                        We understand that not everyone is comfortable writing long emails in formal language.
+                    </p>
+                    <p>
+                        You can contact us in <span class="font-semibold">Arabic (Lebanese dialect)</span>, <span class="font-semibold">English</span>, or <span class="font-semibold">French</span>.
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        We will respond in a clear and respectful tone. The most important thing is that you feel safe to explain what happened, in the way that feels natural to you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white pt-14 pb-8 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-10">
+                <div>
+                    <p class="text-white/90 leading-relaxed mb-6 text-sm md:text-base">
+                        KHEDME is a Lebanese-built platform dedicated to organising everyday service work — from cleaning and moving to repairs, caregiving, and more. Our mission is to create fair, transparent infrastructure for small jobs in Lebanon, so clients, workers, and communities can finally enjoy a daily life that feels calmer, more dignified, and more hopeful.
+                    </p>
+                </div>
+                <div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-4">Links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="about.html" class="text-white/80 hover:text-primary transition">About</a></li>
+                            <li><a href="privacy.html" class="text-white/80 hover:text-primary transition">Privacy Policy</a></li>
+                            <li><a href="terms.html" class="text-white/80 hover:text-primary transition">Terms</a></li>
+                            <li><a href="support.html" class="text-white/80 hover:text-primary transition">Support</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Contact</h4>
+                        <p class="text-white text-sm md:text-base font-medium">
+                            For support, partnerships, or media:
+                        </p>
+                        <a href="mailto:info@khedme.org"
+                           class="inline-block mt-2 px-3 py-1.5 rounded-full bg-amber-300 text-charcoal text-sm md:text-base font-semibold hover:bg-amber-200 transition">
+                            info@khedme.org
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-white/20 pt-6 text-center text-sm">
+                <p class="text-white/80">
+                    🇱🇧 Made in Lebanon, for Lebanon. With ❤️ for workers and families.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.querySelector('.sticky-nav');
+        if (nav) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 8) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+        }
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
+
+
